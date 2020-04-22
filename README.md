@@ -1,11 +1,11 @@
 # Chatbot-intents
 Classifiers detecting user intent in Natural Language
 
-* initialise the chatbot-intents package for multilingual intent detection: `bash configure`
+* `bash configure` - initialise the chatbot-intents package for multilingual intent detection.
 
-* initialise your conda environement: `make setup`
+* `make setup` - synchronize your conda environement.
 
-* train a new intent classifier: `make model-language`, where model is in ngrams or lstm and language in (english, french, russian, german, italian, spanish)
+* `make model-language` - train a new intent classifier where `model` is in ngrams or lstm and `language` in (english, french, russian, german, italian, spanish)
 
 Full paper: [IEEE Xplore](https://ieeexplore.ieee.org/document/8931717)
 
