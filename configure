@@ -1,5 +1,7 @@
 LANGUAGES=(english french russian german italian spanish)
 
+cat Makefile.init > Makefile
+
 for lang in "${LANGUAGES[@]}"
 do
 	echo -e "ngrams-$lang:\n\tpython3.7 -m chatbot-intents.ngrams.train_ngrams $lang\n" >> Makefile

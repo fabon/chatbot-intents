@@ -1,0 +1,9 @@
+all:
+	echo "1/ bash configure 2/ make setup then 3/ make ngrams; or make lstm"
+
+setup:
+	conda env create -f environment.yml python=3.7.6
+
+clean:
+	rm -f chatbot-intents/outputs/*.pkl
+
