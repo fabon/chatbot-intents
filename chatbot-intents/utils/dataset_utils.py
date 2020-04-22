@@ -1,23 +1,15 @@
 import time
 import pickle
 from .nlp_utils import *
+from .path_utils import DATA_DIR
 
-# LANGUAGE="english"
-# LANGUAGE="french"
-# LANGUAGE="german"
-# LANGUAGE="spanish"
-# LANGUAGE="italian"
-# LANGUAGE="russian"
+def load_datasets(encode_func, language):
+    dataset_train_path= DATA_DIR + language + "_data_train.pkl"
+    dataset_test_path= DATA_DIR + language + "_data_test.pkl"
 
-LANGUAGE="spanish"
-
-DATASET_TRAIN_PATH="./chatbot-intents/data/%s_data_train.pkl" % LANGUAGE
-DATASET_TEST_PATH="./chatbot-intents/data/%s_data_test.pkl" % LANGUAGE
-
-def load_datasets(encode_func):
     startTime=time.time()
     print ("Extrating training data ..")
-    dataset_train=pickle.load(open(DATASET_TRAIN_PATH, "rb"))
+    dataset_train=pickle.load(open(dataset_train_path, "rb"))
     train_msgs=[v[1] for v in dataset_train]
     y_train=[int(v[0]) for v in dataset_train]
     print ("Done. Extracting training data [%s sec(s)]" % (time.time()-startTime))
@@ -32,7 +24,7 @@ def load_datasets(encode_func):
 
     startTime=time.time()
     print ("Extracting test data ...")
-    dataset_test=pickle.load(open(DATASET_TEST_PATH, "rb"))
+    dataset_test=pickle.load(open(dataset_test_path, "rb"))
     test_msgs=[v[1] for v in dataset_test]
     y_test=[int(v[0]) for v in dataset_test]
     print ("Done. Extracting test data [%s sec(s)]" % (time.time()-startTime))
@@ -45,8 +37,8 @@ def load_datasets(encode_func):
 
     return index, X_train, y_train, X_test, y_test
 
-def load_datasets_binary():
-    return load_datasets(encode_messages_binary)
+def load_datasets_binary(language):
+    return load_datasets(encode_messages_binary, language)
 
-def load_datasets_sequence():
-    return load_datasets(encode_messages_sequence)
+def load_datasets_sequence(language):
+    return load_datasets(encode_messages_sequence, language)
