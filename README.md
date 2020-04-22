@@ -1,5 +1,5 @@
 # Chatbot-intents
-Classifiers detecting user intent in Natural Languages
+Classifiers detecting user intent in Natural Language
 
 * initialise the chatbot-intents package for multilingual intent detection: `bash configure`
 
