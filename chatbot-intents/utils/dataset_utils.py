@@ -2,8 +2,17 @@ import time
 import pickle
 from .nlp_utils import *
 
-DATASET_TRAIN_PATH="./chatbot-intents/data/english_data_train.pkl"
-DATASET_TEST_PATH="./chatbot-intents/data/english_data_test.pkl"
+# LANGUAGE="english"
+# LANGUAGE="french"
+# LANGUAGE="german"
+# LANGUAGE="spanish"
+# LANGUAGE="italian"
+# LANGUAGE="russian"
+
+LANGUAGE="spanish"
+
+DATASET_TRAIN_PATH="./chatbot-intents/data/%s_data_train.pkl" % LANGUAGE
+DATASET_TEST_PATH="./chatbot-intents/data/%s_data_test.pkl" % LANGUAGE
 
 def load_datasets(encode_func):
     startTime=time.time()
@@ -25,7 +34,7 @@ def load_datasets(encode_func):
     print ("Extracting test data ...")
     dataset_test=pickle.load(open(DATASET_TEST_PATH, "rb"))
     test_msgs=[v[1] for v in dataset_test]
-    y_test=[v[0] for v in dataset_test]
+    y_test=[int(v[0]) for v in dataset_test]
     print ("Done. Extracting test data [%s sec(s)]" % (time.time()-startTime))
 
     startTime=time.time()
