@@ -5,7 +5,7 @@ Classifiers detecting user intent in Natural Language
 
 * `make setup` - synchronize your conda environement.
 
-* `make model-language` - train a new intent classifier where `model` is in ngrams or lstm and `language` in (english, french, russian, german, italian, spanish)
+* `make model-language` - train a new intent classifier where `model` is in ngrams or lstm and `language` in {english, french, russian, german, italian, spanish}
 
 Full paper: [IEEE Xplore](https://ieeexplore.ieee.org/document/8931717)
 
