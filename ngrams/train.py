@@ -49,6 +49,5 @@ def main():
     test_rec=recall_score(preds_labels, y_test)
     print ("TEST F1[%f] PREC[%f] REC[%f]" % (test_f1, test_prec, test_rec))
 
-
 if __name__ == "__main__":
     main()
