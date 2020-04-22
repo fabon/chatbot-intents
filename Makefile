@@ -9,3 +9,5 @@ ngrams:
 
 clean:
 	rm -f chatbot-intents/outputs/*.pkl
+
+.PHONY: ngrams lstm
