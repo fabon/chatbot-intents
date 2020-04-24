@@ -1,4 +1,4 @@
-name: tf2
+name: chatbot-intents
 channels:
   - defaults
 dependencies:

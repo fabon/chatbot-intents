@@ -7,39 +7,42 @@ setup:
 clean:
 	rm -f chatbot-intents/outputs/*.pkl
 
-ngrams-english:
+activate:
+	source /opt/anaconda3/etc/profile.d/conda.sh && conda activate tf2
+
+ngrams-english: activate
 	python3.7 -m chatbot-intents.ngrams.train_ngrams english
 
-lstm-english:
+lstm-english: activate
 	python3.7 -m chatbot-intents.lstm.train_lstm english
 
-ngrams-french:
+ngrams-french: activate
 	python3.7 -m chatbot-intents.ngrams.train_ngrams french
 
-lstm-french:
+lstm-french: activate
 	python3.7 -m chatbot-intents.lstm.train_lstm french
 
-ngrams-russian:
+ngrams-russian: activate
 	python3.7 -m chatbot-intents.ngrams.train_ngrams russian
 
-lstm-russian:
+lstm-russian: activate
 	python3.7 -m chatbot-intents.lstm.train_lstm russian
 
-ngrams-german:
+ngrams-german: activate
 	python3.7 -m chatbot-intents.ngrams.train_ngrams german
 
-lstm-german:
+lstm-german: activate
 	python3.7 -m chatbot-intents.lstm.train_lstm german
 
-ngrams-italian:
+ngrams-italian: activate
 	python3.7 -m chatbot-intents.ngrams.train_ngrams italian
 
-lstm-italian:
+lstm-italian: activate
 	python3.7 -m chatbot-intents.lstm.train_lstm italian
 
-ngrams-spanish:
+ngrams-spanish: activate
 	python3.7 -m chatbot-intents.ngrams.train_ngrams spanish
 
-lstm-spanish:
+lstm-spanish: activate
 	python3.7 -m chatbot-intents.lstm.train_lstm spanish
 

@@ -7,3 +7,6 @@ setup:
 clean:
 	rm -f chatbot-intents/outputs/*.pkl
 
+activate:
+	conda activate chatbot-intents
+
