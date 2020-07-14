@@ -4,8 +4,14 @@ from nltk.tokenize import TweetTokenizer
 from scipy.sparse import lil_matrix
 
 tokenizer = TweetTokenizer()
+# MIN_WORD_COUNT=100
+# MIN_WORD_COUNT=3
 MIN_WORD_COUNT=10
+# MIN_WORD_COUNT=200
+# NGRAMS_ORDERS=[1,2,3]
+# NGRAMS_ORDERS=[1,2,3]
 NGRAMS_ORDERS=[1,2,3]
+# NGRAMS_ORDERS=[1]
 STOPWORDS=[]
 MAX_LEN=200
 
@@ -34,6 +40,7 @@ def token_is_digit(token):
 
 def token_is_1char(token):
     return len(token) == 1 and token.lower() != "i"
+#     return len(token) == 1 and token.lower() not in set(["i", "?"])
 
 def clean_token(token):
     return not token_is_digit(token) and not token_is_1char(token)
@@ -77,7 +84,9 @@ def extract_index(data, higher_order_ngrams=True):
 def encode_messages_binary(index, messages):
     vocab_size=np.max([ind for ind in index.values()])
 #     X = lil_matrix(np.zeros((len(messages), len(index))))
-    X = lil_matrix(np.zeros((len(messages), vocab_size+1)))
+#     X = lil_matrix(np.zeros((len(messages), vocab_size+1)))
+    X = lil_matrix((len(messages), vocab_size+1))
+    print (X.shape)
     i = 0
     for msg in messages:
         for word in tokenize_ngrams(msg, NGRAMS_ORDERS, STOPWORDS):

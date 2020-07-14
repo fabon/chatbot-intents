@@ -6,7 +6,8 @@ import tensorflow as tf
 
 EMBEDDING_SIZE=256
 MEM_SIZE=16
-OUTPUT_UNITS=2
+# OUTPUT_UNITS=2
+OUTPUT_UNITS=3
 
 def load_model_lstm(max_len, vocab_size, reg_value=1e-3):
     input_layer = Input(shape=(max_len,))
